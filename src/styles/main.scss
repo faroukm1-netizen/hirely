@@ -1,0 +1,19 @@
+
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
+
+@use "./base/reset";
+@use "./base/global.scss";
+
+// components //
+
+@use "./components/Navbar.scss";
+@use "./components/Footer.scss";
+
+// pages
+@use "./pages/HomePage/HomePage.scss";
+@use "./pages/FindJobs/FindJobs.scss";
+@use "./pages/CompaniesPage/CompaniesPage.scss";
+@use "./pages/AboutPage/AboutPage.scss";
+@use "./pages/LoginPage.scss";
+@use "./pages/RegisterPage.scss"

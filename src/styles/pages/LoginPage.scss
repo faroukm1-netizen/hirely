@@ -1,0 +1,186 @@
+
+@use "./../abstracts/variables.scss" as *;
+@use "./../abstracts/mixins.scss" as *;
+
+.login-page {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 0;
+
+  &__wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px;
+    background: $surface-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-xl;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 35px;
+
+    h1 {
+      color: $text-color;
+      font-family: $heading-font;
+      font-size: $font-2xl;
+      font-weight: 800;
+      margin: 28px 0 12px;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    p {
+      color: $muted-color;
+      font-size: $font-sm;
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: 28px;
+    font-weight: 800;
+
+    span {
+      color: $primary-color;
+    }
+
+    i {
+      margin-left: 5px;
+      color: $primary-hover;
+      font-size: 20px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 28px;
+    font-size: $font-sm;
+
+    span {
+      color: $muted-color;
+    }
+
+    a {
+      color: $primary-hover;
+      font-weight: 600;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      color: $text-color;
+      font-size: $font-sm;
+      font-weight: 600;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    > i {
+      position: absolute;
+      left: 16px;
+      color: $muted-color;
+      font-size: 18px;
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 52px;
+    padding: 0 16px 0 46px;
+    color: $text-color;
+    background: $bg-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    outline: none;
+    font-size: $font-sm;
+    transition: $transition-fast;
+
+    &::placeholder {
+      color: $muted-color;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.12);
+    }
+  }
+
+  &__error {
+    color: $error-color;
+    font-size: $font-xs;
+    font-weight: 500;
+  }
+
+  &__button {
+    @include button-base;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    color: white;
+    background: $primary-color;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 700;
+    transition: $transition-fast;
+
+    &:hover {
+      background: $primary-hover;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@include respond($breakpoint-sm) {
+  .login-page {
+    padding: 40px 0;
+
+    &__wrapper {
+      padding: 28px 20px;
+    }
+
+    &__header h1 {
+      font-size: $font-xl;
+    }
+  }
+}

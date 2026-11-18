@@ -1,0 +1,239 @@
+
+@use "./../../abstracts/variables" as *;
+@use "./../../abstracts/mixins" as *;
+
+.featured-jobs {
+  padding: 90px 0;
+  background-color: $bg-color;
+
+  &__header {
+    @include flex-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    color: $primary-color;
+    font-size: $font-xs;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: $font-3xl;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    color: $muted-color;
+    font-size: $font-md;
+    margin: 0;
+  }
+
+  &__view-all {
+    color: $primary-color;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: $transition-fast;
+
+    i {
+      margin-left: 6px;
+    }
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  &__card {
+    background-color: $surface-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    padding: 25px;
+    transition: $transition-normal;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: $primary-color;
+      background-color: $surface-hover;
+    }
+  }
+
+  &__card-top {
+    @include flex-between;
+    margin-bottom: 25px;
+  }
+
+  &__company-logo {
+    width: 58px;
+    height: 58px;
+    border-radius: $radius-md;
+    background-color: $surface-hover;
+    border: 1px solid $border-color;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__bookmark {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    background: transparent;
+    color: $muted-color;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+
+  &__position {
+    color: $text-color;
+    font-size: $font-lg;
+    font-weight: 700;
+    margin-bottom: 9px;
+    line-height: 1.5;
+  }
+
+  &__company {
+    color: $muted-color;
+    font-size: $font-sm;
+    margin-bottom: 20px;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: $muted-color;
+    font-size: $font-xs;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    i {
+      color: $primary-color;
+    }
+  }
+
+  &__card-footer {
+    @include flex-between;
+    gap: 12px;
+    border-top: 1px solid $border-color;
+    margin-top: 25px;
+    padding-top: 20px;
+  }
+
+  &__badge {
+    padding: 7px 12px;
+    background-color: rgba($primary-color, 0.12);
+    color: $primary-hover;
+    border-radius: $radius-full;
+    font-size: $font-xs;
+    font-weight: 600;
+  }
+
+&__company-logo {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: $radius-md;
+  background: rgba($primary-color, 0.15);
+  border: 1px solid rgba($primary-color, 0.3);
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  span {
+    color: $primary-hover;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: $heading-font;
+  }
+}
+
+  &__apply {
+    color: $primary-color;
+    font-size: $font-sm;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: $transition-fast;
+
+    i {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .featured-jobs {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__title {
+      font-size: $font-2xl;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .featured-jobs {
+    padding: 65px 0;
+
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__card {
+      padding: 20px;
+    }
+  }
+}

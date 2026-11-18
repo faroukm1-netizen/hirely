@@ -1,0 +1,147 @@
+@use "./../abstracts/variables.scss" as *;
+@use "./../abstracts/mixins.scss" as *;
+
+.footer {
+  background: $surface-color;
+  border-top: 1px solid $border-color;
+  padding: 70px 0 25px;
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 45px;
+    padding-bottom: 50px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+
+    span {
+      color: $primary-color;
+    }
+
+    i {
+      color: $primary-color;
+      font-size: 19px;
+    }
+  }
+
+  &__brand {
+    p {
+      color: $muted-color;
+      font-size: $font-sm;
+      line-height: 1.8;
+      max-width: 300px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $radius-md;
+      background: $surface-hover;
+      border: 1px solid $border-color;
+      color: $muted-color;
+      font-size: 16px;
+      transition: $transition-fast;
+
+      &:hover {
+        background: $primary-color;
+        color: white;
+        border-color: $primary-color;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__links {
+    h3 {
+      color: $text-color;
+      font-family: $heading-font;
+      font-size: $font-md;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    a {
+      color: $muted-color;
+      font-size: $font-sm;
+      transition: $transition-fast;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-hover;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid $border-color;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    p {
+      color: $muted-color;
+      font-size: $font-xs;
+      margin: 0;
+    }
+
+    i {
+      color: $error-color;
+      font-size: 11px;
+    }
+  }
+
+  @include respond($breakpoint-xl) {
+    &__main {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding: 55px 0 20px;
+
+    &__main {
+      grid-template-columns: 1fr 1fr;
+      gap: 35px 20px;
+    }
+
+    &__brand {
+      grid-column: 1 / -1;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

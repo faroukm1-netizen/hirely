@@ -1,0 +1,125 @@
+
+@use "./../../abstracts/variables" as *;
+@use "./../../abstracts/mixins" as *;
+
+.about-benefits {
+  padding: 85px 0;
+
+  &__header {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: $primary-hover;
+    font-size: $font-sm;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: $font-2xl;
+    font-weight: 800;
+    margin-bottom: 16px;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__description {
+    color: $muted-color;
+    font-size: $font-sm;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  &__card {
+    padding: 28px 22px;
+    background: $surface-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    transition: $transition-normal;
+
+    &:hover {
+      transform: translateY(-7px);
+      border-color: rgba($primary-color, 0.55);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+      .about-benefits__icon {
+        color: white;
+        background: $primary-color;
+        transform: translateY(-3px);
+      }
+    }
+
+    h3 {
+      color: $text-color;
+      font-size: $font-md;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    p {
+      color: $muted-color;
+      font-size: $font-sm;
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
+    color: $primary-hover;
+    background: rgba($primary-color, 0.12);
+    border: 1px solid rgba($primary-color, 0.2);
+    border-radius: $radius-md;
+    font-size: 24px;
+    transition: $transition-normal;
+  }
+
+  @include respond($breakpoint-xl) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding: 55px 0;
+
+    &__header {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-size: $font-xl;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__card {
+      padding: 25px;
+    }
+  }
+}

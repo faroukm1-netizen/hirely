@@ -1,0 +1,442 @@
+
+@use "./../../abstracts/variables" as *;
+@use "./../../abstracts/mixins" as *;
+
+// Search Bar
+
+.jobs-search {
+  padding: 35px 0;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 20px 24px;
+    background: $surface-color;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+
+    > i {
+      color: $primary-hover;
+      font-size: 22px;
+    }
+
+    label {
+      display: block;
+      color: $text-color;
+      font-size: $font-sm;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: $text-color;
+      font-size: $font-sm;
+
+      &::placeholder {
+        color: $muted-color;
+      }
+    }
+  }
+
+  &__button {
+    @include button-base;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: $radius-md;
+    background: $primary-color;
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: $transition-fast;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    &__form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+}
+
+// Jobs Results
+
+.jobs-results {
+  padding: 30px 0 80px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: $font-xl;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    color: $muted-color;
+    font-size: $font-sm;
+    margin: 0;
+  }
+
+  &__count {
+    color: $primary-hover;
+    background: rgba($primary-color, 0.12);
+    border: 1px solid rgba($primary-color, 0.25);
+    border-radius: $radius-full;
+    padding: 8px 16px;
+    font-size: $font-sm;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 65px 20px;
+    background: $surface-color;
+    border: 1px dashed $border-color;
+    border-radius: $radius-lg;
+
+    > i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: rgba($primary-color, 0.12);
+      color: $primary-hover;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: $text-color;
+      font-size: $font-lg;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $muted-color;
+      font-size: $font-sm;
+      margin: 0;
+    }
+  }
+
+  @include respond($breakpoint-lg) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding-bottom: 55px;
+
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+ 
+
+
+.jobs-results {
+  padding: 30px 0 80px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: $font-xl;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    color: $muted-color;
+    font-size: $font-sm;
+    margin: 0;
+  }
+
+  &__count {
+    color: $primary-hover;
+    background: rgba($primary-color, 0.12);
+    border: 1px solid rgba($primary-color, 0.25);
+    border-radius: $radius-full;
+    padding: 8px 16px;
+    font-size: $font-sm;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 65px 20px;
+    background: $surface-color;
+    border: 1px dashed $border-color;
+    border-radius: $radius-lg;
+
+    > i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: rgba($primary-color, 0.12);
+      color: $primary-hover;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      color: $text-color;
+      font-size: $font-lg;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $muted-color;
+      font-size: $font-sm;
+      margin: 0;
+    }
+  }
+
+  @include respond($breakpoint-lg) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding-bottom: 55px;
+
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+// Job Card
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  padding: 22px;
+  background: $surface-color;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  transition: $transition-normal;
+
+  &:hover {
+    border-color: rgba($primary-color, 0.55);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+  }
+
+  &__company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: rgba($primary-color, 0.12);
+    border: 1px solid rgba($primary-color, 0.2);
+    border-radius: $radius-md;
+
+    img {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      object-fit: contain;
+    }
+
+    span {
+      color: $primary-hover;
+      font-size: $font-xl;
+      font-weight: 700;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: $muted-color;
+    font-size: $font-xs;
+
+    i {
+      color: $primary-hover;
+    }
+  }
+
+  &__info {
+    margin-bottom: 20px;
+  }
+
+  &__position {
+    color: $text-color;
+    font-size: $font-lg;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  &__company {
+    color: $primary-hover;
+    font-size: $font-sm;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: $muted-color;
+      font-size: $font-xs;
+
+      i {
+        color: $muted-color;
+      }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+
+    span {
+      padding: 6px 10px;
+      color: $muted-color;
+      background: $surface-hover;
+      border: 1px solid $border-color;
+      border-radius: $radius-sm;
+      font-size: $font-xs;
+      font-weight: 500;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid $border-color;
+  }
+
+  &__apply {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: white;
+    background: $primary-color;
+    border-radius: $radius-md;
+    font-size: $font-sm;
+    font-weight: 600;
+    transition: $transition-fast;
+    text-decoration: none;
+
+    i {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: white;
+      background: $primary-hover;
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    min-height: auto;
+    padding: 18px;
+
+    &__position {
+      font-size: $font-md;
+    }
+  }
+}

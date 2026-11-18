@@ -1,0 +1,88 @@
+@use "./../../abstracts/variables" as *;
+@use "./../../abstracts/mixins" as *;
+
+.jobs{
+  margin: 50px 0px;
+}
+
+.jobs-header {
+  padding: 65px 0;
+  background: linear-gradient(
+    135deg,
+    rgba($primary-color, 0.12),
+    transparent 65%
+  );
+  border-bottom: 1px solid $border-color;
+
+  &__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    color: $primary-hover;
+    font-size: $font-sm;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: $font-3xl;
+    font-weight: 800;
+    margin: 15px 0;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__description {
+    color: $muted-color;
+    font-size: $font-md;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: $font-sm;
+
+    a {
+      color: $muted-color;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+
+    i {
+      color: $muted-color;
+      font-size: 11px;
+    }
+
+    span {
+      color: $primary-hover;
+      font-weight: 600;
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding: 50px 0;
+
+    &__title {
+      font-size: $font-2xl;
+    }
+
+    &__description {
+      font-size: $font-sm;
+    }
+  }
+}

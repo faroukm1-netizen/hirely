@@ -1,0 +1,88 @@
+@use "./../../abstracts/variables" as *;
+@use "./../../abstracts/mixins" as *;
+
+.companies-header {
+  padding: 65px 0;
+  background: linear-gradient(
+    135deg,
+    rgba($primary-color, 0.08),
+    transparent 60%
+  );
+  border-bottom: 1px solid $border-color;
+
+  &__content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: $primary-hover;
+    font-size: $font-sm;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    color: $text-color;
+    font-family: $heading-font;
+    font-size: $font-3xl;
+    font-weight: 700;
+    line-height: 1.2;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__description {
+    max-width: 600px;
+    margin: 0 auto 24px;
+    color: $muted-color;
+    font-size: $font-md;
+    line-height: 1.7;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: $font-sm;
+
+    a {
+      color: $muted-color;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+
+    i {
+      color: $primary-color;
+      font-size: 12px;
+    }
+
+    span {
+      color: $text-color;
+      font-weight: 500;
+    }
+  }
+
+  @include respond($breakpoint-sm) {
+    padding: 50px 0;
+
+    &__title {
+      font-size: $font-2xl;
+    }
+
+    &__description {
+      font-size: $font-sm;
+    }
+  }
+}
